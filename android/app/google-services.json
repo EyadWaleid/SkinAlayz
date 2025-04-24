@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "940697106003",
+    "project_id": "skinalyez",
+    "storage_bucket": "skinalyez.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940697106003:android:9eb72505b7488f59a8b8a6",
+        "android_client_info": {
+          "package_name": "com.example.skinalayz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw7A9kNRmApcRtW8BlD0OgEOTLNhdpgJ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
