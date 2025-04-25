@@ -52,11 +52,11 @@ class LoginForm extends StatelessWidget {
                   controller:passwordController,
                   validator: (value){
                     if(value!.isEmpty){
-                      return 'Please enter your email ';
+                      return 'Please enter your password ';
                     }
                     if(value.isNotEmpty){
                       if (value.length<6){
-                        return 'least number of characters for password is 4 ';
+                        return 'least number of characters for password is 6 ';
                       }}
                   },);
               },

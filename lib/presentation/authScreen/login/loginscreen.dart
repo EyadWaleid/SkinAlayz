@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:skinalayz/presentation/authScreen/OrWidget.dart';
-import 'package:skinalayz/presentation/authScreen/registerAsUser/registerform.dart';
-import '../../../common/widgets/TTextButton.dart';
+import 'package:skinalayz/presentation/authScreen/login/pageFooter.dart';
+import 'package:skinalayz/utli/constant/images.dart';
 import '../../../common/widgets/smallButton.dart';
-import '../../../utli/constant/colours.dart';
-import '../../../utli/constant/images.dart';
-class RegisterUser extends StatelessWidget {
-  const RegisterUser({super.key});
+import '../OrWidget.dart';
+import 'loginform.dart';
+
+class UserLogin extends StatelessWidget {
+  const UserLogin({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,38 +19,42 @@ class RegisterUser extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // The start of the page icon and 2 text
                 Center(child: Image.asset(AppImage.logo)),
                 Text(
-                  'Create account!',
+                  'Welcome Back!',
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 Text(
-                  'create to start your diagnose ',
+                  'Login with your account',
                   style: Theme.of(context).textTheme.labelMedium,
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                RegisterForm(),
+                //the form Widgets
+                LoginForm(),
                 const SizedBox(
                   height: 20,
                 ),
+                //the divider and or
                 const OrWidget(),
                 const SizedBox(
                   height: 20,
                 ),
+                //the buttons of google and outlook
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SmallButton(
-                      text: 'register with',
+                      text: 'Login with',
                       image: 'assets/images/google (1).png',
                     ),
                     const SizedBox(
                       width: 20,
                     ),
                     SmallButton(
-                      text: 'register with',
+                      text: 'Login with',
                       image: 'assets/images/outlook.png',
                     ),
                   ],
@@ -57,28 +62,8 @@ class RegisterUser extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                Center(
-                  child: SizedBox(
-                    width: 150,
-                    child: Divider(
-                      color: AppColour.primaryColor,
-                      thickness: 1,
-                    ),
-                  ),
-                ),
-                Center(
-                    child: Text(
-                  "you have account?",
-                  style: Theme.of(context).textTheme.labelMedium,
-                )),
-                Center(
-                  child: TTextButton(
-                    label: 'Login',
-                    function: () {
-                      Navigator.pushNamed(context, '/userlogin');
-                    },
-                  ),
-                )
+                //the divider and register button
+                const PageFooter()
               ],
             ),
           ),

@@ -20,15 +20,28 @@ class FormBox extends StatelessWidget {
       controller:controller ,
       maxLines: 1,
       obscureText: isObscured??false,
+
+      style:Theme.of(context).textTheme.titleSmall!.copyWith(color:AppColour.primaryBlack,fontSize:16),
       decoration:  InputDecoration(
-        contentPadding: const EdgeInsets.symmetric(vertical:15),
+        contentPadding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+        //the style of label in the floating or in the form
+        labelText:labeled,
+        labelStyle: Theme.of(context).textTheme.labelMedium?.copyWith(color: Colors.white),
+        floatingLabelAlignment: FloatingLabelAlignment.start,
+        floatingLabelStyle:  TextStyle(color:AppColour.primaryBlack,fontSize: 20),
+        //the colour of the formBox
         fillColor: AppColour.primaryColor,
         filled: isFilled??false,
-        label:Text(labeled,style: Theme.of(context).textTheme.labelMedium?.copyWith(color: Colors.white)),
-        suffixIcon:IconButton(color:Colors.white, onPressed:onPressed, icon:suffixIcon ??Icon(null) ),
+        //the status of the form box in the enable focus and error
+        focusedBorder:UnderlineInputBorder(borderSide: BorderSide.none,borderRadius: BorderRadius.circular(15)),
         enabledBorder: const OutlineInputBorder(borderRadius:BorderRadius.all(Radius.circular(15)),borderSide:BorderSide.none),
+        errorBorder: const OutlineInputBorder(borderRadius:BorderRadius.all(Radius.circular(15)),borderSide: BorderSide(color: Colors.red) ),
+        //the icons of the form box
         prefixIcon:  Icon(icon,color: Colors.white,),
+        suffixIcon:IconButton(color:Colors.white, onPressed:onPressed, icon:suffixIcon ??Icon(null) ),
       ),
+      cursorColor: Colors.white,
+
       validator: validator??(value){
 
       },

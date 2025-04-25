@@ -11,8 +11,17 @@ class ForgetPasswordScreen extends StatelessWidget {
    ForgetPasswordScreen({super.key});
   TextEditingController emailVertification=TextEditingController();
    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+   String? emailValidation(String? email){
+     RegExp emailRegex=RegExp(r'^[\w\.-]+@[\w\.-]+\.[a-zA-Z]{2,}$') ;
+     final isEmailvalid=emailRegex.hasMatch(email??"");
+     if(!isEmailvalid){
+       return 'Enter a valid email';
+     }
+     return null;
+   }
 
-  @override
+
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body:Form(
@@ -28,7 +37,8 @@ class ForgetPasswordScreen extends StatelessWidget {
                 Center(child: Image.asset(AppImage.logo)),
                 Text('Reset password ',style: Theme.of(context).textTheme.titleLarge,textAlign: TextAlign.start,),
                 const SizedBox(height:10,),
-                FormBox(labeled: 'Email', icon: Icons.email, controller:emailVertification,isFilled: true, ),
+                FormBox(labeled: 'Email', icon: Icons.email, controller:emailVertification,isFilled: true,
+                validator:emailValidation,),
                 const SizedBox(height: 50,),
 
                 AppButton(label: 'Send Link',function: (){

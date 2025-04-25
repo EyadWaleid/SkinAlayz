@@ -89,7 +89,7 @@ class RegisterForm extends StatelessWidget {
                   }
                   if(value.isNotEmpty){
                     if (value.length<6){
-                      return 'least number of characters for password is 4 ';
+                      return 'least number of characters for password is 6 ';
                     }}
                 },);
             },

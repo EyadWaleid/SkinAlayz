@@ -7,8 +7,8 @@ import 'package:skinalayz/Business_logic/forgetPassword/forget_password_cubit.da
 import 'package:skinalayz/Business_logic/register/register_cubit.dart';
 import 'package:skinalayz/presentation/HomeScreen/HomeScreen.dart';
 import 'package:skinalayz/presentation/authScreen/choosescreen/chooseScreen.dart';
-import 'package:skinalayz/presentation/authScreen/loginAsUser/UserLogin.dart';
-import 'package:skinalayz/presentation/authScreen/loginAsUser/ForgetPasseword/forgetpasswordScreen.dart';
+import 'package:skinalayz/presentation/authScreen/login/ForgetPasseword/forgetpasswordScreen.dart';
+import 'package:skinalayz/presentation/authScreen/login/loginscreen.dart';
 import 'package:skinalayz/presentation/authScreen/registerAsUser/registerAsUser.dart';
 import 'package:skinalayz/presentation/authScreen/registerAsUser/userdata/userdata.dart';
 import 'package:skinalayz/presentation/splashscreen/splashScreen.dart';
@@ -23,6 +23,7 @@ class AppRoute {
                 width: double.infinity,
                 //this widget to check if the user has been logged to the application so if he logged before make him enter to homeScreen dirctly
                 child: AnimatedSplashScreen(
+                  animationDuration: const Duration(seconds: 1),
                   splash: SizedBox(height: double.infinity,child: Center(child: SplashScreen())),
                   nextScreen: StreamBuilder<User?>(
                     stream: FirebaseAuth.instance.authStateChanges(),
@@ -32,7 +33,7 @@ class AppRoute {
                           body: Center(child: CircularProgressIndicator()),
                         );
                       } else if (!snapshot.hasData) {
-                        return  ChooseScreen();
+                        return  const ChooseScreen();
                       } else {
                         return const HomeScreen();
                       }
@@ -40,7 +41,6 @@ class AppRoute {
                   ),
                   backgroundColor: Colors.white,
                   splashIconSize: 500,
-                  duration:3000,
                 )));
 
       case ('/userlogin'):

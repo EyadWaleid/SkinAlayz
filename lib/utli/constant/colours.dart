@@ -6,7 +6,7 @@ class AppColour{
  static Color backgroundColor=const Color(0xFFEDE3D5);
  static Color greyColor=const Color(0xffC1C1C1);
  static Color scaffoldColour=  Colors.white;
- static Color tryingColour=Color(0xff398795).withOpacity(0.5);
- static Color backgroundCircleColour=Color(0xff022A31).withOpacity(0.5);
+ static Color tryingColour=const Color(0xff398795).withOpacity(0.5);
+ static Color primaryBlack=const Color(0xff022A31);
 
 }
